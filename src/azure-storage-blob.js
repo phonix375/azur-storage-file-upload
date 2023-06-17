@@ -4,7 +4,7 @@
 // THIS IS SAMPLE CODE ONLY - NOT MEANT FOR PRODUCTION USE
 import { BlobServiceClient } from "@azure/storage-blob";
 
-const containerName = `uploaded`;
+const containerName = `sorce`;
 const sasToken = process.env.REACT_APP_AZURE_STORAGE_SAS_TOKEN;
 const storageAccountName = process.env.REACT_APP_AZURE_STORAGE_RESOURCE_NAME;
 // </snippet_package>
@@ -17,8 +17,7 @@ console.log(uploadUrl);
 const blobService = new BlobServiceClient(uploadUrl);
 
 // get Container - full public read access
-const containerClient =
-  blobService.getContainerClient(containerName);
+const containerClient = blobService.getContainerClient(containerName);
 // </snippet_get_client>
 
 // <snippet_isStorageConfigured>
@@ -40,8 +39,8 @@ export const getBlobsInContainer = async () => {
 
     const blobItem = {
       url: `https://${storageAccountName}.blob.core.windows.net/${containerName}/${blob.name}?${sasToken}`,
-      name: blob.name
-    }
+      name: blob.name,
+    };
 
     // if image is public, just construct URL
     returnedBlobUrls.push(blobItem);
