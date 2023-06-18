@@ -11,10 +11,6 @@ const storageConfigured = isStorageConfigured();
 const App = () => {
   const sasToken = process.env.REACT_APP_AZURE_STORAGE_SAS_TOKEN;
   const storageAccountName = process.env.REACT_APP_AZURE_STORAGE_RESOURCE_NAME;
-  console.log("look here");
-  console.log("sasToken", sasToken);
-  console.log("storageAccountName", storageAccountName);
-  console.log(storageConfigured);
   // all blobs in container
   const [blobList, setBlobList] = useState([]);
 
